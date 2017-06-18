@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fetch</title>
+</head>
+<body>
+        <div id="text"></div>
+</body>
+<script>
+    window.onload = function fetchData () {
+        var target = document.getElementById('text');
+        var path = './mock.json';
+        var req = new Request(path,{method: 'GET',cache: 'reload'});
+        window.fetch(req).then(response=>{
+            return response.json()
+        }).then(json=>{
+            target.innerText = json.name;
+    })
+    }
+</script>
+</html>
